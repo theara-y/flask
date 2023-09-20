@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="static/home.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container text-center bg-body-tertiary shadow-sm rounded m-3 p-3">
+        <h1 id="header" class="h1">Madlibs</h1>
+        <form action="/madlib_form" method="GET">
+            <div class="input-group mt-3">
+                <label class="input-group-text">Story:</label>
+                <select class="form-select" name="madlib_id" id="madlib_selector">
+                    {% for madlib in madlibs %}
+                        <option value="{{madlib.id}}">{{madlib.title}}</option>
+                    {% endfor %}
+                </select>
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

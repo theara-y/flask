@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <div class="container text-center bg-body-tertiary shadow-sm rounded m-3 p-3">
+        <h1 class="h1">Madlibs</h1>
+        <form action="/show_madlib?madlib_id={{madlib_id}}" method="POST">
+            {% for prompt in prompts %}
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="{{prompt}}" name="{{prompt}}" type="text" placeholder="{{prompt}}">
+                    <label for="{{prompt}}">{{prompt}}</label>
+                </div>
+            {% endfor %}        
+            <button class="btn btn-lg btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}
