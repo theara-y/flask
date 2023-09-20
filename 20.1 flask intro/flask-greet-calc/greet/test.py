@@ -2,6 +2,7 @@ from app import app
 import unittest
 
 class TestSimpleRoutes(unittest.TestCase):
+    """python3 -m unittest test.py"""
 
     def test_welcome(self):
         tester = app.test_client(self)
