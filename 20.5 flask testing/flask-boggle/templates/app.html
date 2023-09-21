@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Boggle{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="static/app.css">
+{% endblock %}
+
+{% block js %}
+<script src="static/app.js" type="module"></script>
+{% endblock %}
+
+{% block body %}
+<div>
+    <div id="toast">Toast</div>
+    <div id="timer"><div>60</div></div>
+    <div class="header">
+        <div>Boggle</div>
+    </div>
+    <div class="section">
+        <div class="game-ui">
+            <div id="score-display">-</div>
+            <div id="word-list">
+                <span>Test</span>
+                <span>Test</span>
+                <span>Test</span>
+                <span>Test</span>
+                <span>Test</span>
+                <span>Test</span>
+            </div>
+        </div>
+        <table class="game-board">
+            {% for row in board %}
+                <tr>
+                {% for col in row %}
+                    <td>{{col}}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        <form>
+            <input id="word" type="text">
+            <button id="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
