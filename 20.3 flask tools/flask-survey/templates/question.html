@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Survey{% endblock %}
+
+{% block body %}
+<div class="container mt-5 pt-5">
+    {% for msg in get_flashed_messages() %}
+        <div class="alert alert-danger alert-dismissable fade show">
+            <strong>{{msg}}</strong>
+            <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+    <div class="text-center row">
+        <h1 class="h2">{{question}}</h1>
+    </div>
+    <form action="/answer" method="POST">
+        <fieldset>
+            {% for choice in choices %}
+            <div class="row mb-3">
+                <input class="btn-check" name="answer" type="radio" id="{{choice}}" value="{{choice}}">
+                <label class="btn btn-outline-warning" for="{{choice}}">{{choice}}</label>
+            </div>
+            {% endfor %}
+        </fieldset>
+        <div class="d-flex justify-content-center row">
+            <button class="btn btn-primary center-text">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
