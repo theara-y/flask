@@ -12,7 +12,7 @@ const [showToast] = useToast();
 const [setScore, getScore] = useScoreBox($('#current-score'));
 const [setBest, getBest] = useScoreBox($('#best-score'));
 const [validateWord] = useGameLogic();
-const [startTimer, stopTimer, resetTimer, isRunning, isZero] = useTimer(60, $('#timer'), whenTimeIsOver);
+const [startTimer, stopTimer, resetTimer, isRunning, isZero] = useTimer(180, $('#timer'), whenTimeIsOver);
 const [setButton, getButton] = useButton($('#new-game-btn'), 'Start Game')
 
 lock();

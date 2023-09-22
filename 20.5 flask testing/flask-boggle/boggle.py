@@ -7,8 +7,45 @@ import string
 class Boggle():
 
     def __init__(self):
-
+        self.letters = self.use_scrabble_letter_distribution()
         self.words = self.read_dict("words.txt")
+
+    def use_scrabble_letter_distribution(self):
+        scrabble_letters = []
+        for i in range(0, 6):
+            scrabble_letters.append('E')
+        for i in range(0, 4):
+            scrabble_letters.append('A')
+            scrabble_letters.append('I')
+        for i in range(0, 4):
+            scrabble_letters.append('O')
+        for i in range(0, 3):
+            scrabble_letters.append('N')
+            scrabble_letters.append('R')
+            scrabble_letters.append('T')
+        for i in range(0, 2):
+            scrabble_letters.append('L')
+            scrabble_letters.append('S')
+            scrabble_letters.append('U')
+            scrabble_letters.append('D')
+        for i in range(0, 1):
+            scrabble_letters.append('G')
+        for i in range(0, 1):
+            scrabble_letters.append('B')
+            scrabble_letters.append('C')
+            scrabble_letters.append('M')
+            scrabble_letters.append('P')
+            scrabble_letters.append('F')
+            scrabble_letters.append('H')
+            scrabble_letters.append('V')
+            scrabble_letters.append('W')
+            scrabble_letters.append('Y')
+        # scrabble_letters.append('K')
+        # scrabble_letters.append('J')
+        # scrabble_letters.append('X')
+        # scrabble_letters.append('Q')
+        # scrabble_letters.append('Z')
+        return scrabble_letters
 
     def read_dict(self, dict_path):
         """Read and return all words in dictionary."""
@@ -24,7 +61,8 @@ class Boggle():
         board = []
 
         for y in range(5):
-            row = [choice(string.ascii_uppercase) for i in range(5)]
+            # row = [choice(string.ascii_uppercase) for i in range(5)]
+            row = [choice(self.letters) for i in range(5)]
             board.append(row)
 
         return board
