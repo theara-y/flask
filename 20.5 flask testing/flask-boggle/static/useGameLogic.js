@@ -17,7 +17,7 @@ export default function useGameLogic() {
     }
 
     function isAlreadyUsed(word) {
-        return word in words;
+        return words.includes(word)
     }
 
     return [validateWord]
